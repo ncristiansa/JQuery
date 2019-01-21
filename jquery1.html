@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" defer>
+        /*
+        Mostrar un alerta cuando haya cargado la site
+        function Message(){
+          alert("Página cargada y lista");
+        }
+        $(document).ready(function(){
+          Message();
+        });
+        
+        */
+        function Message(){
+          $("h2").text("soy el amo");
+        }
+       $(document).ready(
+           Message()
+       )
+            /*
+            $(document).ready(function(){
+                Message();
+            });
+            */
+        /*
+            function Message(){
+                var myH2 = document.getElementsByTagName("h2")[0];
+                myH2.text("asdasdasd");
+            }
+        */
+        </script>
+    </head>
+  <body>
+   <h2>Hola</h2>
+   <script type="text/javascript" defer>
+       function Message(){
+          $("h2").text("soy el amo");
+        }
+       $(document).ready(
+           Message()
+       )
+   </script>
+  </body>
+</html>
