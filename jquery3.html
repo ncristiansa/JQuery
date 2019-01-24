@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        function construirNuevoElemento(){
+            var valor = $("li:last").text();
+            //Convertimos el valor obtenido a entero y lo guardamos en
+            //una variable
+            var total = parseInt(valor) * 2;
+            $("ul").append($("<li>").text(total));
+        }
+        function borrarPrimerElemento(){
+
+        }
+        $(document).ready(function(){
+            $("input[name='construir']").on("click", construirNuevoElemento);
+            $("input[name='borrarFirst']").on("click", borrarPrimerElemento);
+        });
+        
+        
+    </script>
+  </head>
+  <body>
+    <h2>Ayúdame a construirme</h2>
+    <ul>
+      <li>
+        2
+      </li>
+      <li>
+        4
+      </li>
+      <li>
+        8
+      </li>
+    </ul>
+    <input type="button" name="construir" value="Construye"/>
+    <input type="button" name="borrarFirst" value="Borra el primero"/>
+    <input type="button" name="borraSeleccion" value="Borra el elemento"/>
+    <input type="text" name="elementToDelete"/>
+  </body>
+</html>
