@@ -11,13 +11,21 @@
             //una variable
             var total = parseInt(valor) * 2;
             $("ul").append($("<li>").text(total));
+            //Codigo en una sola linea
+            //Obtengo la etiqueta UL
+            //$("ul").append($("<li>").text($("li:last").text()*2))
         }
         function borrarPrimerElemento(){
-
+            $("li").first().remove();
+        }
+        function borrarElemento(){
+            var valorInput = $("input[name='elementToDelete']").val();
+            $("li").eq(valorInput-1).remove();
         }
         $(document).ready(function(){
             $("input[name='construir']").on("click", construirNuevoElemento);
             $("input[name='borrarFirst']").on("click", borrarPrimerElemento);
+            $("input[name='borraSeleccion']").on("click", borrarElemento);
         });
         
         
