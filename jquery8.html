@@ -7,10 +7,10 @@
             *input(listaGeneral) => crearJuegoLista
             *input(listaAnual) => asignarListaYear
             */
-            function asignarEventos(){
-              $("input[name='listaGeneral']").on("click", crearJuegoLista);
-              $("input[name='listaAnual']").on("click", asignarListaYear);
-            }
+           $(function(){
+            $("input[name='listaGeneral']").on("click", crearJuegoLista);
+            $("input[name='listaAnual']").on("click", asignarListaYear);
+           });
       
             /*
             *Recorre el array asociativo juegos y crea un nuevo elemento de la lista
@@ -30,8 +30,12 @@
               };
               //tu código empieza aquí
              for(var nombre in juegos){
-               $("ul").eq(0).append($("<li>").text(nombre));
+               $("<li>").data("year", juegos[nombre]).text(nombre).appendTo($("ul:first"));
              }
+             //$("<li>").data("year", juegos[nombre]).text(nombre).appendTo($("ul:first"));
+             //$.data()
+             //$("ul").eq(0).append($("<li>").text(nombre+": "+juegos[nombre]));
+
             }
       
             /*
@@ -39,9 +43,13 @@
             * de los elementos crea un nuevo elemento en la lista del año que toque
             */
             function asignarListaYear(){
-              alert("hola 2");
+              var lista = $("li").length;
+              for(var i =0; i>$("li").length;i++){
+                if($("li").eq(i).data("year") != $("h3 > span").eq(0).text()){
+                  $("ul").eq(1).append($("<li>").text($("li").eq(i).text()));
+                }
+              }
             }
-            $(document).ready(asignarEventos);
           </script>
         </head>
         <body>
@@ -57,12 +65,12 @@
             </ul>
           </div>
           <div>
-            <h3>listado de juegos del <span>2017</span></h3>
+            <h3>Listado de juegos del <span>2017</span></h3>
             <ul>
             </ul>
           </div>
           <div>
-            <h3>listado de juegos del <span>2016</span></h3>
+            <h3>Listado de juegos del <span>2016</span></h3>
             <ul>
             </ul>
           </div>
