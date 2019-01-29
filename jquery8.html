@@ -1,14 +1,16 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <script type="text/javascript" src="jquery-3.2.1.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript">
             /*Asignar el evento click:
             *input(listaGeneral) => crearJuegoLista
             *input(listaAnual) => asignarListaYear
             */
-            $(function(){
-            });
+            function asignarEventos(){
+              $("input[name='listaGeneral']").on("click", crearJuegoLista);
+              $("input[name='listaAnual']").on("click", asignarListaYear);
+            }
       
             /*
             *Recorre el array asociativo juegos y crea un nuevo elemento de la lista
@@ -26,7 +28,10 @@
                 'Dark Souls III':'2016',
                 'Final Fantasy XV':'2016'
               };
-              //tu código empieza aquí 
+              //tu código empieza aquí
+             for(var nombre in juegos){
+               $("ul").eq(0).append($("<li>").text(nombre));
+             }
             }
       
             /*
@@ -34,7 +39,9 @@
             * de los elementos crea un nuevo elemento en la lista del año que toque
             */
             function asignarListaYear(){
+              alert("hola 2");
             }
+            $(document).ready(asignarEventos);
           </script>
         </head>
         <body>
