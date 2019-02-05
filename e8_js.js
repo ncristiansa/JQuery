@@ -1,9 +1,4 @@
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script type="text/javascript">
-            /*Asignar el evento click:
+/*Asignar el evento click:
             *input(listaGeneral) => crearJuegoLista
             *input(listaAnual) => asignarListaYear
             */
@@ -43,41 +38,16 @@
             * de los elementos crea un nuevo elemento en la lista del año que toque
             */
             function asignarListaYear(){
-              var lista = $("li").length;
-              for(var i =0; i>$("li").length;i++){
-                if($("li").eq(i).data("year") != $("h3 > span").eq(0).text()){
-                  $("ul").eq(1).append($("<li>").text($("li").eq(i).text()));
-                }
+
+                $("li").each(function(index){
+                  if($(this).data("year")=="2016"){
+                    $("<li>").text($(this).text()).appendTo($("span:contains('2016')").parent().parent().find("ul"));
+                  }
+                  if($(this).data("year")=="2017"){
+                    $("<li>").text($(this).text()).appendTo($("span:contains('2017')").parent().parent().find('ul'));
+                  }
+                  if($(this).data("year")=="2018"){
+                    $("<li>").text($(this).text()).appendTo($("span:contains('2018)").parent().parent().find("ul"));
+                  }
+                });
               }
-            }
-          </script>
-        </head>
-        <body>
-          <h2>Usando el data en jQuery</h2>
-          <div>
-            <h3>Listado de juegos General</h3>
-            <ul>
-            </ul>
-          </div>
-          <div>
-            <h3>Listado de juegos en <span>2018</span></h3>
-            <ul>
-            </ul>
-          </div>
-          <div>
-            <h3>Listado de juegos del <span>2017</span></h3>
-            <ul>
-            </ul>
-          </div>
-          <div>
-            <h3>Listado de juegos del <span>2016</span></h3>
-            <ul>
-            </ul>
-          </div>
-          <div>
-            <input type="button" name="listaGeneral" value="Crear listado general"/>
-            <input type="button" name="listaAnual" value="Crear listado por año"/>
-          </div>
-        </body>
-      </html>
-      
